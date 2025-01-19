@@ -5,8 +5,8 @@ const ApiContext = createContext();
 
 // ApiProvider component to manage authentication state
 export const ApiProvider = ({ children }) => {
-  const [baseURL, setBaseURL] = useState('http://127.0.0.1:8000/api'); // Set your base URL here
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Track if user is logged in
+  const [baseURL, setBaseURL] = useState('http://127.0.0.1:8000/api'); 
+  const [isLoggedIn, setIsLoggedIn] = useState(false); 
 
   const setLoggedIn = (status) => {
     setIsLoggedIn(status); // Update login status
@@ -19,7 +19,6 @@ export const ApiProvider = ({ children }) => {
   );
 };
 
-// Custom hook to use ApiContext
 export const useApi = () => {
   return useContext(ApiContext);
 };

@@ -1,12 +1,12 @@
 import React from 'react';
 import { GoogleLogin } from '@react-oauth/google';
 import { useNavigate } from 'react-router-dom';
-import { useApi } from '../Contexts/ApiContext'; // Context for API base URL
+import { useApi } from '../Contexts/ApiContext';
 import axios from 'axios';
 
 export const Login = () => {
   const navigate = useNavigate();
-  const { baseURL, setLoggedIn } = useApi(); // Use baseURL and setLoggedIn from ApiContext
+  const { baseURL, setLoggedIn } = useApi();
 
   // Handle successful login
   const handleLoginSuccess = async (credentialResponse) => {
@@ -17,10 +17,10 @@ export const Login = () => {
         { headers: { 'Content-Type': 'application/json' }, withCredentials: true }
       );
   
-      const { token } = res.data.user; // Extract the token from response
-      localStorage.setItem('auth_token', token); // Save token in localStorage
-      setLoggedIn(true); // Update context to indicate user is logged in
-      navigate('/dashboard'); // Redirect to dashboard
+      const { token } = res.data.user; 
+      localStorage.setItem('auth_token', token); 
+      setLoggedIn(true); 
+      navigate('/dashboard'); 
     } catch (error) {
       console.error('Google login failed:', error);
     }

@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useApi } from "../Contexts/ApiContext"; // Import the ApiContext
-import { Container, Row, Col, Form, Button, Alert, Card } from "react-bootstrap"; // Import Bootstrap components
-import { useNavigate } from "react-router-dom"; // Import useNavigate to redirect user
+import { useApi } from "../Contexts/ApiContext"; 
+import { Container, Row, Col, Form, Button, Alert, Card } from "react-bootstrap"; 
+import { useNavigate } from "react-router-dom"; 
 import { Chart } from "chart.js/auto";
 import { Line, Pie } from "react-chartjs-2";
 
 const Dashboard = () => {
-  const { baseURL, setLoggedIn } = useApi(); // Use baseURL and setLoggedIn from ApiContext
-  const navigate = useNavigate(); // Use the navigate hook to navigate to login
+  const { baseURL, setLoggedIn } = useApi(); 
+  const navigate = useNavigate(); 
   const [performanceScore, setPerformanceScore] = useState(null);
   const [metrics, setMetrics] = useState(null);
   const [categories, setCategories] = useState(null);
@@ -42,7 +42,7 @@ const Dashboard = () => {
 
       const { performance_score, metrics, categories } = response.data;
 
-      setPerformanceScore(performance_score); // Update the state with the score
+      setPerformanceScore(performance_score); 
       setMetrics(metrics); // Update metrics
       setCategories(categories); // Update categories
     } catch (error) {
